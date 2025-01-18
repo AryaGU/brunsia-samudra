@@ -380,7 +380,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
+                                        <canvas id="myChart"></canvas>
                                     </div>
                                     <hr>
                                     Styling for the bar chart can be found in the
@@ -432,6 +432,29 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <script src="{{ asset('assets/js/demo/chart-bar-demo.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const bar = document.getElementById('myChart');
+      
+        new Chart(bar, {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
 
 @endsection
