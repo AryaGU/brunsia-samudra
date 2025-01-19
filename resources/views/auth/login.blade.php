@@ -41,40 +41,51 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    @session('error')
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ $value }}
+                                        </div>
+                                    @endsession
+                                    <form class="user" method="POST" action="{{ route('login.store') }}">
+                                        @csrf
+                                        @method('POST')
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                            <label for="email">Email Address</label>
+                                            <input type="email" class="form-control form-control-user" id="email"
+                                                name="email" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <label for="password">Password</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control form-control-user"
+                                                    id="password" name="password" placeholder="Password">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-outline-secondary" type="button"
+                                                        id="togglePassword">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
+                                                <input type="checkbox" class="custom-control-input" id="remember"
+                                                    name="remember">
+                                                <label class="custom-control-label" for="remember">Remember
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="#" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
-                                        <hr>
-                                        <a href="#" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="#" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('forgot_password') }}">Forgot Password?</a>
+                                        <a class="small" href="#">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                                        <a class="small" href="#">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
@@ -97,6 +108,18 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const password = document.getElementById('password');
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+
+            // Toggle eye icon
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+    </script>
 
 </body>
 
