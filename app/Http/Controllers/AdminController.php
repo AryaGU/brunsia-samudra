@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengiriman;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -37,5 +38,17 @@ class AdminController extends Controller
         Pengiriman::create($request->all());
 
         return redirect()->route('data_pengiriman')->with('success', 'Data pengiriman berhasil ditambahkan!');
+    }
+
+    public function laporan_pengiriman()
+    {
+        // Ambil data pengiriman
+        $pengiriman = Pengiriman::all();
+
+        // Generate PDF menggunakan view khusus
+        $pdf = Pdf::loadView('pdf.laporan_pengiriman', compact('pengiriman'));
+
+        // Unduh PDF
+        return $pdf->download('laporan_pengiriman.pdf');
     }
 }
