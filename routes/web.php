@@ -5,6 +5,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.dashboard');
 })->name('dashboard');
+Route::get('/data-pengiriman', function () {
+    return view('admin.data_pengiriman');
+})->name('data_pengiriman');
+Route::get('/data-pengiriman/tambah', function () {
+    return view('admin.tambah_data');
+})->name('data_pengiriman.tambah');
 Route::get('/buttons', function () {
     return view('template.buttons');
 })->name('buttons');
