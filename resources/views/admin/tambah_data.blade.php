@@ -109,28 +109,56 @@
 
                     <a class="btn btn-primary mb-4" href="{{ route('data_pengiriman') }}">Kembali</a>
 
-
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <form action="#" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="negara_pengirim">Negara Pengirim</label>
+                                    <input type="text" class="form-control" id="negara_pengirim" name="negara_pengirim">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama_pengirim">Nama Pengirim</label>
+                                    <input type="text" class="form-control" id="nama_pengirim" name="nama_pengirim">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama_penerima">Nama Penerima</label>
+                                    <input type="text" class="form-control" id="nama_penerima" name="nama_penerima">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bank_penerima">Bank Penerima</label>
+                                    <input type="text" class="form-control" id="bank_penerima" name="bank_penerima">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nomor_rekening">Nomor Rekening Penerima</label>
+                                    <input type="text" class="form-control" id="nomor_rekening" name="nomor_rekening">
+                                </div>
+                                <div class="form-group">
+                                    <label for="alamat">Alamat Penerima</label>
+                                    <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- /.container-fluid -->
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Brunsia Samudra 2025</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
 
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Brunsia Samudra 2025</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
-
-@endsection
+    @endsection
