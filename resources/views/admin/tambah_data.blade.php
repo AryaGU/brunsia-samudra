@@ -111,7 +111,7 @@
 
                     <div class="card shadow mb-4">
                         <div class="card-body">
-                            <form action="#" method="POST">
+                            <form action="{{ route('data_pengiriman.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="negara_pengirim">Negara Pengirim</label>
@@ -137,7 +137,7 @@
                                     <label for="alamat">Alamat Penerima</label>
                                     <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Tambah</button>
                             </div>
                         </div>
                     <!-- /.container-fluid -->

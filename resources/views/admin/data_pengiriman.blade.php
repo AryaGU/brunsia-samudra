@@ -122,6 +122,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Negara Pengirim</th>
                                             <th>Nama Pengirim</th>
                                             <th>Nama Penerima</th>
@@ -131,14 +132,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse($pengiriman as $data)
                                         <tr>
-                                            <td>Indonesia</td>
-                                            <td>John Doe</td>
-                                            <td>Jane Doe</td>
-                                            <td>Bank BCA</td>
-                                            <td>1234567890</td>
-                                            <td>Jl. Raya No. 123</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $data->negara_pengirim }}</td>
+                                            <td>{{ $data->nama_pengirim }}</td>
+                                            <td>{{ $data->nama_penerima }}</td>
+                                            <td>{{ $data->bank_penerima }}</td>
+                                            <td>{{ $data->nomor_rekening }}</td>
+                                            <td>{{ $data->alamat }}</td>
                                         </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="7" class="text-center">Data Kosong</td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
